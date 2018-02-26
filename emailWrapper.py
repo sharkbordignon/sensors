@@ -17,7 +17,6 @@ def sendEmail(to, result, datetime):
 def setupEmail():
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
-    print(_password_)
     server.login(_login_, _password_)
     return server
 

@@ -9,13 +9,10 @@ def getFileName():
     return filename
 
 def save(result):
-    print ('Saving')
     filename= getFileName()
-    print (filename)
     with open(filename, 'a') as csvfile:
         fieldnames = ['time', 'temperature', 'humidity']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         #writer.writeheader()
         writer.writerow({'time': str(datetime.datetime.now()), 'temperature': result.temperature, 'humidity': result.humidity})
-    print ('Saved!')
