@@ -19,7 +19,6 @@ instance = dht11.DHT11(pin=24)
 hourSent = -1
 while True:
     result = instance.read()
-    #print(result.is_valid())
     while result.is_valid() == False:
         result = instance.read()
     if result.is_valid():
