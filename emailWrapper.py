@@ -14,6 +14,12 @@ def sendEmail(to, result, datetime):
     server.sendmail(_login_, to, email)
     server.quit()
 
+def sendEmailDS(to, result, datetime):
+    server = setupEmail()
+    email = createMessengeDS(to, result, datetime)
+    server.sendmail(_login_, to, email)
+    server.quit()
+
 def setupEmail():
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
@@ -22,6 +28,19 @@ def setupEmail():
 
 def createMessenge(to, result, datetime):
     body = "Stats time: " + str(datetime) + " || temperature: " + str(result.temperature) + "C || humidity: " + str(result.humidity) + "%"
+
+    msg = MIMEMultipart()
+    msg['From'] = _login_
+    msg['To'] = to
+    msg['Subject'] = 'House report'
+    
+    msg.attach(MIMEText(body, 'plain'))
+    email = msg.as_string()
+    return email
+
+def createMessengeDS(to, result, datetime):
+    print(result)
+    body = "Stats time: " + str(datetime) + " || temperature inside: " + str(result[0]) + " celsius  || temperature outside: " + str(result[1]) + " celsius."
 
     msg = MIMEMultipart()
     msg['From'] = _login_
