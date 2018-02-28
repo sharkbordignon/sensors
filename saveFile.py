@@ -16,3 +16,13 @@ def save(result):
 
         #writer.writeheader()
         writer.writerow({'time': str(datetime.datetime.now()), 'temperature': result.temperature, 'humidity': result.humidity})
+
+
+def saveDS(result):
+    filename= getFileName()
+    with open(filename, 'a') as csvfile:
+        fieldnames = ['time', 'temperature']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+        #writer.writeheader()
+        writer.writerow({'time': str(datetime.datetime.now()), 'temperature_inside': result[0], 'temperature_outside': result[1]})
