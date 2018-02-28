@@ -30,18 +30,16 @@ if __name__ == '__main__':
     try:
         sensors = sensor()
         while True:
-            temp =[]
+            sensors_temp = []
             for sensor in sensors:
                 if read(sensor) != None:
-
-                    #saveFile.save(sensorName, result)
-                    temp.append(read(sensor)[0])
+                    sensors_temp.append(read(sensor)[0])
                     print sensor
                     print "Current temperature : %0.3f C" % read(sensor)[0]
                     #print "Current temperature : %0.3f F" % read(sensor)[1]
-
+            saveFile.saveDS(sensors_temp)
             if hourSent != datetime.datetime.now().hour:
-                emailWrapper.sendEmailDS('thiagobordignon@gmail.com', temp, datetime.datetime.now())
+                emailWrapper.sendEmailDS('thiagobordignon@gmail.com', sensors_temp, datetime.datetime.now())
                 hourSent = datetime.datetime.now().hour
             time.sleep(60)
     except KeyboardInterrupt:

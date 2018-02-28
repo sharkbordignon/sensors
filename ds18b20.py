@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import os
 import time
-import saveFile
 
 print(os.listdir('/sys/bus/w1/devices'))
 
@@ -34,14 +33,11 @@ if __name__ == '__main__':
     try:
         sensors = sensor()
         while True:
-            sensors_temp = []
             for sensor in sensors:
                 if read(sensor) != None:
-                    sensors_temp.append(read(sensor)[0])
                     print sensor
                     print "Current temperature : %0.3f C" % read(sensor)[0]
                     print "Current temperature : %0.3f F" % read(sensor)[1]
-            saveFile.saveDS(sensors_temp)
             time.sleep(60)
     except KeyboardInterrupt:
         kill()

@@ -19,9 +19,10 @@ def save(result):
 
 
 def saveDS(result):
+    print(result[0])
     filename= getFileName()
     with open(filename, 'a') as csvfile:
-        fieldnames = ['time', 'temperature']
+        fieldnames = ['time', 'temperature_inside', 'temperature_outside']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         #writer.writeheader()
