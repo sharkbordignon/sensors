@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-import dht11
+import lib.dht11 as dht11
 import time
 import datetime
 import saveFile
@@ -26,7 +26,6 @@ while True:
         if hourSent != datetime.datetime.now().hour:
             emailWrapper.sendEmail('thiagobordignon@gmail.com', result, datetime.datetime.now())
             hourSent = datetime.datetime.now().hour
-        
+
     time.sleep(60)
-       
 

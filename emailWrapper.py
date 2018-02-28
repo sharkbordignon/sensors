@@ -3,7 +3,7 @@ import smtplib
 from  email.MIMEMultipart import MIMEMultipart
 from  email.MIMEText import MIMEText
 
-import config as cfg
+import config.config as cfg
 
 _login_ = cfg.email['email']
 _password_ = cfg.email['key']

@@ -2,18 +2,16 @@
 import os
 import time
 
-print(os.listdir('/sys/bus/w1/devices'))
-
 
 def sensor():
     sensors = []
     for i in os.listdir('/sys/bus/w1/devices'):
         if i != 'w1_bus_master1':
             sensors.append(i)
-          
+
     print sensors
     return sensors
- 
+
 def read(sensor):
     location = '/sys/bus/w1/devices/' + sensor + '/w1_slave'
     tfile = open(location)
@@ -25,10 +23,10 @@ def read(sensor):
     celsius = temperature / 1000
     farenheit = (celsius * 1.8) + 32
     return celsius, farenheit
- 
+
 def kill():
     quit()
- 
+
 if __name__ == '__main__':
     try:
         sensors = sensor()
