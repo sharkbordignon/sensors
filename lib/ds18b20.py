@@ -2,7 +2,6 @@
 import os
 import time
 
-
 def sensor():
     sensors = []
     for i in os.listdir('/sys/bus/w1/devices'):
@@ -24,8 +23,8 @@ def read(sensor):
     farenheit = (celsius * 1.8) + 32
     return celsius, farenheit
 
-def kill():
-    quit()
+#def kill():
+#    quit()
 
 if __name__ == '__main__':
     try:
@@ -38,4 +37,4 @@ if __name__ == '__main__':
                     print "Current temperature : %0.3f F" % read(sensor)[1]
             time.sleep(60)
     except KeyboardInterrupt:
-        kill()
+        #kill()
