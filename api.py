@@ -4,10 +4,6 @@ import lib.ds18b20 as ds18b20
 app = Flask(__name__)
 sensors = None
 
-if __name__ == '__main__':
-    sensors = ds18b20.sensor()
-    app.run(host='0.0.0.0', port='2121')
-
 @app.route('/')
 def index():
     sensors_temp = []
@@ -18,3 +14,7 @@ def index():
     return "Inside: " + str(sensors_temp[0]) + " || Outside: " + str(sensors_temp[1])
     #return sensors_temp
     #return "Hello, World!"
+
+if __name__ == '__main__':
+    sensors = ds18b20.sensor()
+    app.run(host='0.0.0.0', port='2121')
