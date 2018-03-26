@@ -18,13 +18,13 @@ def index():
 @app.route('/inside')
 def inside():
     sensor = getInsideSensor()
-    if ds18b20.read(sensors) != None:
+    if ds18b20.read(sensor) != None:
         return "Temperature: " + str(ds18b20.read(sensor)[0])
 
 @app.route('/outside')
 def outside():
     sensor = getOutsideSensor()
-    if ds18b20.read(sensors) != None:
+    if ds18b20.read(sensor) != None:
         return "Temperature: " + str(ds18b20.read(sensor)[0])
 
 def getInsideSensor():
