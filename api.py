@@ -14,6 +14,7 @@ def index():
     for sensor in sensors:
         if ds18b20.read(sensor) != None:
             sensors_temp.append(ds18b20.read(sensor)[0])
-    ds18b20.kill()
-    return sensors_temp
+    #ds18b20.kill()
+    return "Inside: " + str(sensors_temp[0]) + " || Outside: " + str(sensors_temp[1])
+    #return sensors_temp
     #return "Hello, World!"
