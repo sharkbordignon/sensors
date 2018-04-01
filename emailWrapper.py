@@ -40,12 +40,9 @@ def createMessenge(to, result, datetime):
 
 def createMessengeDS(to, result, datetime, itsRaining):
     print(itsRaining)
-    rain
-    if(itsRaining == 0)
+    rain = ""
+    if itsRaining == 0:
         rain = "not"
-    else
-        rain = ""
-        
     body = "Stats time: " + str(datetime) + " || temperature inside: " + str(result[0]) + " celsius  || temperature outside: " + str(result[1]) + " celsius. Currently " + rain + " raining!"
 
     msg = MIMEMultipart()
