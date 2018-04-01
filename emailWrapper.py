@@ -41,7 +41,7 @@ def createMessenge(to, result, datetime):
 def createMessengeDS(to, result, datetime, itsRaining):
     print(itsRaining)
     rain = ""
-    if itsRaining == 0:
+    if itsRaining == 1:
         rain = "not"
     body = "Stats time: " + str(datetime) + " || temperature inside: " + str(result[0]) + " celsius  || temperature outside: " + str(result[1]) + " celsius. Currently " + rain + " raining!"
 
