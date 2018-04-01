@@ -5,6 +5,7 @@ import saveFile
 import emailWrapper
 
 import lib.ds18b20 as ds18b20
+import lib.rain as rain
 
 hourSent = -1
 if __name__ == '__main__':
@@ -20,7 +21,7 @@ if __name__ == '__main__':
                     #print "Current temperature : %0.3f F" % ds18b20.read(sensor)[1]
             saveFile.saveDS(sensors_temp)
             if hourSent != datetime.datetime.now().hour:
-                emailWrapper.sendEmailDS('thiagobordignon@gmail.com', sensors_temp, datetime.datetime.now())
+                emailWrapper.sendEmailDS('thiagobordignon@gmail.com', sensors_temp, datetime.datetime.now(), rain.itsRaining())
                 hourSent = datetime.datetime.now().hour
             time.sleep(60)
     except KeyboardInterrupt:

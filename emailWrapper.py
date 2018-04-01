@@ -38,9 +38,15 @@ def createMessenge(to, result, datetime):
     email = msg.as_string()
     return email
 
-def createMessengeDS(to, result, datetime):
+def createMessengeDS(to, result, datetime, itsRaining):
     print(result)
-    body = "Stats time: " + str(datetime) + " || temperature inside: " + str(result[0]) + " celsius  || temperature outside: " + str(result[1]) + " celsius."
+    rain
+    if(itsRaining ==0)
+        rain = "not"
+    else
+        rain = ""
+        
+    body = "Stats time: " + str(datetime) + " || temperature inside: " + str(result[0]) + " celsius  || temperature outside: " + str(result[1]) + " celsius. Currently " + rain + " raining!"
 
     msg = MIMEMultipart()
     msg['From'] = _login_
