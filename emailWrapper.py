@@ -14,9 +14,9 @@ def sendEmail(to, result, datetime):
     server.sendmail(_login_, to, email)
     server.quit()
 
-def sendEmailDS(to, result, datetime):
+def sendEmailDS(to, result, datetime, itsRaining):
     server = setupEmail()
-    email = createMessengeDS(to, result, datetime)
+    email = createMessengeDS(to, result, datetime, itsRaining)
     server.sendmail(_login_, to, email)
     server.quit()
 
@@ -39,9 +39,9 @@ def createMessenge(to, result, datetime):
     return email
 
 def createMessengeDS(to, result, datetime, itsRaining):
-    print(result)
+    print(itsRaining)
     rain
-    if(itsRaining ==0)
+    if(itsRaining == 0)
         rain = "not"
     else
         rain = ""
