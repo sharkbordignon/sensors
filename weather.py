@@ -3,7 +3,7 @@ import time
 import datetime
 import saveFile
 import emailWrapper
-import spreadsheet
+import lib.spreadsheet as spreadsheet
 
 import lib.ds18b20 as ds18b20
 import lib.rain as rain
